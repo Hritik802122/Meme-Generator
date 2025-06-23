@@ -8,7 +8,7 @@ The Meme Generator is a fun and interactive web app built using HTML, CSS and Ja
    
  - Generate Button: Instantly displays a new meme from the selected category with each click of the "Generate" button.
    
- - API-Driven: Fetches fresh memes dynamically using [`meme-api.com`](https://meme-api.com/gimme/${category}) based on selected category.
+ - API-Driven: Fetches fresh memes dynamically using (https://meme-api.com/gimme/${category}) based on selected category.
    
  - Dark Mode: Seamless toggle for user-friendly viewing.
 
@@ -24,6 +24,7 @@ The Meme Generator is a fun and interactive web app built using HTML, CSS and Ja
   
 # Live Demo:
 (https://meme-gen-hritik.netlify.app)
+
 
 Made with ❤️ by Hritik Roushan
 
