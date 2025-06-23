@@ -1,0 +1,232 @@
+/* CSS Variables for theming */
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --background-gradient: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+  --card-bg: #ffffff;
+  --text-color: #333;
+  --subtle-text-color: #666;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --border-color: #ddd;
+  --loader-color: #007bff;
+}
+
+body.dark-mode {
+  --primary-color: #4dabf7;
+  --primary-hover: #1e88e5;
+  --background-gradient: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+  --card-bg: #2a2a2e;
+  --text-color: #f5f5f5;
+  --subtle-text-color: #aaa;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --border-color: #444;
+  --loader-color: #4dabf7;
+}
+
+/* General Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--background-gradient);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Card Layout */
+.meme-generator-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px var(--shadow-color);
+  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Controls Section */
+.controls {
+  padding: 20px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--subtle-text-color);
+}
+
+#category {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Buttons */
+.generate-meme-btn, .download-meme-btn, .theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.generate-meme-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+.generate-meme-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.download-meme-btn {
+  background-color: #28a745;
+  color: white;
+}
+.download-meme-btn:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+.theme-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--subtle-text-color);
+    padding: 8px 12px;
+}
+.theme-btn:hover {
+    background-color: var(--border-color);
+    color: var(--text-color);
+}
+
+/* Meme Display Area */
+.meme-display {
+  padding: 0 24px 24px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.meme-image {
+  max-width: 100%;
+  max-height: 450px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.meme-image.loaded {
+    opacity: 1;
+}
+
+.meme-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 4px;
+}
+
+.meme-author {
+  font-size: 0.9rem;
+  color: var(--subtle-text-color);
+}
+
+/* Actions */
+.actions {
+    padding: 0 24px 24px;
+}
+
+/* Loader */
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--loader-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: none; /* Hidden by default */
+}
+
+.loader.show {
+    display: block;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Footer */
+.card-footer {
+  padding: 12px 24px;
+  background-color: rgba(0,0,0,0.03);
+  border-top: 1px solid var(--border-color);
+}
+
+.card-footer p {
+  font-size: 0.8rem;
+  color: var(--subtle-text-color);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .card-header h1 {
+    font-size: 1.2rem;
+  }
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
